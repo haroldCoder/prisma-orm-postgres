@@ -1,0 +1,19 @@
+{
+  "name": "prisma-orm-posgres",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx nodemon"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "prisma": "^5.4.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.4.2"
+  }
+}
