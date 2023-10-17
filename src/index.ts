@@ -3,7 +3,7 @@ import {PrismaClient} from  "@prisma/client";
 class Main{
     public prisma = new PrismaClient();
 
-    main = async() =>{
+    createUser = async() =>{
         const newuser = await this.prisma.user.create({
             data: {
                 name: "Maria",
@@ -12,9 +12,19 @@ class Main{
             }
         })
 
-        console.log(newuser);
+        console.log(newuser);   
+    }
+
+    viewAllUsers = async() =>{
+        const users = await this.prisma.user.findMany();
+        console.log(users);
         
+    } 
+
+    viewUserByName = async(name: string) =>{
+        const user = await this.prisma.user.findFirst({where: {name: name}});
+        console.log(user);
     }
 }
 
-new Main().main()
+new Main().viewUserByName("Maria")
