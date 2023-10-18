@@ -1,7 +1,7 @@
 import {PrismaClient} from  "@prisma/client";
 import {User} from "./types"
 
-class Main{
+export default class Main{
     public prisma = new PrismaClient();
 
     createUser = async(user: User) =>{
