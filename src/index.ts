@@ -86,4 +86,19 @@ export default class Main{
         console.log(user);
         
     }
+
+    viewUsersWithPosts = async() =>{
+        const users = await this.prisma.user.findMany({
+            include: {
+                post: true
+            }
+        });
+
+        users.map((e)=>{
+            console.log(e);
+        })
+        
+    }
 }
+
+new Main().viewUsersWithPosts();
