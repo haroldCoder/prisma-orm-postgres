@@ -14,4 +14,4 @@ class Posts extends Main{
     }
 }
 
-new Posts().createPost({title: "first post", content: "first", authorId: 1});
+new Posts().viewAllUsers()

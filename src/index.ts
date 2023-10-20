@@ -1,5 +1,5 @@
 import {PrismaClient} from  "@prisma/client";
-import {User} from "./types"
+import {Post, User} from "./types"
 
 export default class Main{
     public prisma = new PrismaClient();
@@ -66,6 +66,24 @@ export default class Main{
             }
         })
     }
-}
 
-new Main().upsertUser({name: "Ryan", email: "Ryan34@gmail.com", lastname: "Castaño", Id: 1});
+    conectPostWithUsers = async(userp: User, post: Post) =>{
+        const user = await this.prisma.user.create({
+            data: {
+                name: userp.name,
+                email: userp.email,
+                lastname: userp.lastname,
+                post: {
+                    create: {
+                        title: post.title,
+                        content: post.content,
+
+                    }
+                }
+            }
+        })
+
+        console.log(user);
+        
+    }
+}
